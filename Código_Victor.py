@@ -14,6 +14,7 @@ class Familia:
 
 # Lista de de alunos.
 lista_de_familias = []
+filhos=[]
 total_familias = 0
 print("\n=== Solicitando dados dos alunos ===")
 while True:
@@ -21,25 +22,25 @@ while True:
     print("\n1. Adicionar família")
     print("2. Exibir resultados")
     print("3. Sair")
-    opcao = input("Escolha uma opção: ")
+    opcao = int(input("Escolha uma opção: "))
     match opcao:
             case 1:
                     familia = Familia(
                     filhos = int(input("Digite a quantidade de filhos: ")),
-                    salario = float(input("Digite sua idade: "))
+                    salario = float(input("Digite o salário da família: "))
                     
                 )
                     lista_de_familias.append(familia)
                     total_familias += 1
                     print ("Dados da família salva com sucesso")
                     for familia in lista_de_familias:
-                        media_filhos = sum(filhos) / len(filhos)
-                        media_salarios = sum(salario) / len(salario)
-                        maior_salario = max(salario)
-                        menor_salario = min(salario)
+                        media_filhos = sum(familia.filhos) / len(familia.filhos)
+                        media_salarios = sum(familia.salario) / len(familia.salario)
+                        maior_salario = max(familia.salario)
+                        menor_salario = min(familia.salario)
                         limpa_terminal()
             case 2:
-               print("\n=== Exibindo resultados ===")  
+                print("\n=== Exibindo resultados ===")  
                 print(f"Total de famílias que participaram da pesquisa: {total_familias}")
                 print(f"Média de salário da população: {media_salarios}")
                 print(f"Média de filhos por família da população: {media_filhos}")
@@ -82,7 +83,3 @@ with open(nome_do_arquivo, "r") as arquivo_de_origem:
 # Fechar conexão com o arquivo.
 arquivo_familias.close()
 
-print("\n\n=== Exibindo dados dos alunos do arquivo ===")
-for familia in lista_de_familias:
-    print(f"Filhos: {familia.nome}")
-    print(f"Idade: {familia.salario}")
