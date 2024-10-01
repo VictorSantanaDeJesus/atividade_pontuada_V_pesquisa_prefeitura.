@@ -19,36 +19,31 @@ lista_de_familias = []
 
 print("\n=== Solicitando dados dos alunos ===")
 while True:
-    print("Opções do menu:")
+print("Opções do menu:")
     print("\n1. Adicionar família")
     print("2. Exibir resultados")
     print("3. Sair")
     opcao = input("Escolha uma opção: ")
     match opcao:
-            case 3: 
-                break
             case 1:
                     familia = Familia(
                     filhos = int(input("Digite seu nome: ")),
                     salario = float(input("Digite sua idade: "))
+                    
                 )
                     lista_de_familias.append(familia)
                     print ("Dados da família salva com sucesso")
             case 2:
                 for familia in lista_de_familias:
-                    print(f"Nome: {aluno.nome}")
+                    print(f"Quantidade de filhos: {familia.filhos}")
                     print(f"Idade: {aluno.idade}")
+            case 3: 
+                break        
             case _:  
                 print("Opção inválida! Tente novamente.")
                 time.sleep(1)
                 limpa_terminal()
 
-                
-    familia = Familia(
-        filhos = int(input("Digite seu nome: ")),
-        salario = float(input("Digite sua idade: "))
-    )
-    lista_de_familias.append(familia)
     
 
 print("\n=== Exibindo dados dos alunos ===")
