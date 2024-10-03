@@ -25,6 +25,8 @@ while True:
     opcao = int(input("Escolha uma opção: "))
     match opcao:
             case 1:
+                    lista_salarios = []
+                    lista_filhos = []
                     familia = Familia(
                     filhos = int(input("Digite a quantidade de filhos: ")),
                     salario = float(input("Digite o salário da família: "))
@@ -34,10 +36,13 @@ while True:
                     total_familias += 1
                     print ("Dados da família salva com sucesso")
                     for familia in lista_de_familias:
-                        media_filhos = sum(familia.filhos) / len(familia.filhos)
-                        media_salarios = sum(familia.salario) / len(familia.salario)
-                        maior_salario = max(familia.salario)
-                        menor_salario = min(familia.salario)
+                        lista_salarios.append(familia.salario)
+                        lista_filhos.append(familia.filhos)
+                        media_filhos = sum(lista_filhos) / len(lista_filhos)
+                        media_salarios = sum(lista_salarios) / len(lista_salarios)
+                        maior_salario = max(lista_salarios)
+                        menor_salario = min(lista_salarios)                       
+
                         limpa_terminal()
             case 2:
                 print("\n=== Exibindo resultados ===")  
@@ -46,6 +51,7 @@ while True:
                 print(f"Média de filhos por família da população: {media_filhos}")
                 print(f"Maior salário da população: {maior_salario}")
                 print(f"Menor salário da população: {menor_salario}")
+                time.sleep (8)
                 limpa_terminal()
             case 3: 
                 break        
