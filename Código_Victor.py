@@ -9,7 +9,7 @@ def limpa_terminal():
 # Estrutura de dados.
 @dataclass
 class Familia:
-    filhos: int
+    filhos: float
     salario: float
 
 # Lista de de alunos.
